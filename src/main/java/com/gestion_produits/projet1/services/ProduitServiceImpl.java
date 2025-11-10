@@ -1,4 +1,4 @@
-package com.produits.service;
+package com.gestion_produits.projet1.services;
 import java.util.List;
 
 import com.gestion_produits.projet1.services.ProduitService;
