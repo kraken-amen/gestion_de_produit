@@ -1,7 +1,6 @@
 package com.gestion_produits.projet1.entities;
 
 import com.gestion_produits.projet1.repos.FournisseurRepository;
-import com.gestion_produits.projet1.repos.ProduitRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +12,7 @@ public class FourniseurApplicationTest {
     @Test
     public void createTest()
     {
-        Fournisseur fournisseur=new Fournisseur("amen","amen@gmail.com");
+        Fournisseur fournisseur=new Fournisseur("Dell","amen@gmail.com");
         fournisseurRepository.save(fournisseur);
     }
 }

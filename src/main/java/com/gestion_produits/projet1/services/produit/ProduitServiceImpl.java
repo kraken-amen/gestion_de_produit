@@ -1,7 +1,5 @@
-package com.gestion_produits.projet1.services;
+package com.gestion_produits.projet1.services.produit;
 import java.util.List;
-
-import com.gestion_produits.projet1.services.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.gestion_produits.projet1.entities.Produit;
 import com.gestion_produits.projet1.repos.ProduitRepository;

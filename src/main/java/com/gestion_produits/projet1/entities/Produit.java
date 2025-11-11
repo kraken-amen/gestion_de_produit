@@ -2,7 +2,9 @@ package com.gestion_produits.projet1.entities;
 import java.util.Date;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class Produit {
     @Id
@@ -12,47 +14,19 @@ public class Produit {
     private Double prixProduit;
     private Date dateCreation;
 
+    public Produit() {
+    }
+
     public Produit( String nomProduit, Double prixProduit, Date dateCreation) {
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.dateCreation = dateCreation;
-    }
-    public Produit() {}
-
-
-    public Long getIdProduit() {
-        return idProduit;
-    }
-
-    public void setIdProduit(Long idProduit) {
-        this.idProduit = idProduit;
-    }
-
-    public String getNomProduit() {
-        return nomProduit;
-    }
-
-    public void setNomProduit(String nomProduit) {
-        this.nomProduit = nomProduit;
-    }
-
-    public Double getPrixProduit() {
-        return prixProduit;
-    }
-
-    public void setPrixProduit(Double prixProduit) {
-        this.prixProduit = prixProduit;
-    }
-
-    public Date getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
+        this.cat = cat;
+        this.fichier = fichier;
     }
 
     @Override
+
     public String toString() {
         return "Produit{" +
                 "idProduit=" + idProduit +
@@ -64,6 +38,8 @@ public class Produit {
     @ManyToOne
     @JoinColumn(name = "cat_id")
     private Catégorie cat;
-
+    @OneToOne
+    @JoinColumn(name="fich-id")
+    private FichierStock fichier;
 
 }

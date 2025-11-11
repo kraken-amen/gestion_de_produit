@@ -1,4 +1,4 @@
-package com.gestion_produits.projet1.services;
+package com.gestion_produits.projet1.services.produit;
 import java.util.List;
 import com.gestion_produits.projet1.entities.Produit;
 public interface ProduitService {

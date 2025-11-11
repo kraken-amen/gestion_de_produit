@@ -1,10 +1,11 @@
 package com.gestion_produits.projet1.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Entity
 public class Catégorie {
     @Id
@@ -19,31 +20,6 @@ public class Catégorie {
     }
     public Catégorie() {
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public String toString() {
         return "Catégorie{" +
