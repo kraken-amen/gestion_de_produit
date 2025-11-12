@@ -16,14 +16,14 @@ public class ProduitServiceImpl implements ProduitService {
         return produitRepository.save(p);
     }
     @Override
-    public Produit updateProduit(Produit p) {
-        Optional<Produit> produit=produitRepository.findById(p.getIdProduit());
-        if(produit.isPresent()) {
-            produit.get().setNomProduit(p.getNomProduit());
-            produit.get().setPrixProduit(p.getPrixProduit());
-            produit.get().setDateCreation(p.getDateCreation());
-        }
-        return produitRepository.save(p);
+    public void updateProduit(Produit p,long idProduit) {
+        produitRepository.findById(idProduit).ifPresent(produit -> {
+            produit.setNomProduit(p.getNomProduit());
+            produit.setPrixProduit(p.getPrixProduit());
+            produit.setDateCreation(p.getDateCreation());
+            produitRepository.save(produit);
+        });
+
     }
     @Override
     public void deleteProduit(Produit p) {

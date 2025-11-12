@@ -21,8 +21,6 @@ public class Produit {
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.dateCreation = dateCreation;
-        this.cat = cat;
-        this.fichier = fichier;
     }
 
     @Override
@@ -38,8 +36,11 @@ public class Produit {
     @ManyToOne
     @JoinColumn(name = "cat_id")
     private Catégorie cat;
-    @OneToOne
-    @JoinColumn(name="fich-id")
-    private FichierStock fichier;
+//    @OneToOne
+//    @JoinColumn(name="fich-id")
+//    private FichierStock fichier;
+
+    @OneToOne(mappedBy = "produit")
+    private FichierStock fichierStock;
 
 }

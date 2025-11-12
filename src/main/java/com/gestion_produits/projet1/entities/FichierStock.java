@@ -16,9 +16,7 @@ public class FichierStock {
     public FichierStock() {
     }
 
-    public FichierStock(Long id, Produit produit, Date dateMàj, int quantite) {
-        this.id = id;
-        this.produit = produit;
+    public FichierStock( Date dateMàj, int quantite ) {
         this.dateMàj = dateMàj;
         this.quantite = quantite;
     }
@@ -31,6 +29,7 @@ public class FichierStock {
                 ", dateMàj=" + dateMàj +
                 '}';
     }
-    @OneToOne(mappedBy = "fiche",cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "produit_id")
     private Produit produit;
 }

@@ -14,22 +14,22 @@ public class ProduitsApplicationTests {
     private ProduitRepository produitrepos ;
     @Test
     public void testCreateProduit()
-    {Produit produit = new Produit("PC Dell",2200.500,new Date());
+    {Produit produit = new Produit("oooo",2240.500,new Date());
 
         produitrepos.save(produit);
     }
     @Test
     public void testFindProduit() {
-        Produit p = produitrepos.findById(1L).get();
+        Produit p = produitrepos.findById(4L).get();
         System.out.println(p); }
     @Test
     public void testUpdateProduit() {
-        Produit p = produitrepos.findById(1L).get();
+        Produit p = produitrepos.findById(5L).get();
         p.setPrixProduit(1000.0);
         produitrepos.save(p);}
     @Test
     public void testDeleteProduit()
-    { produitrepos.deleteById(1L);; }
+    { produitrepos.deleteById(6L);; }
     @Test
     public void testListerTousProduits() {
         List<Produit> prods = produitrepos.findAll();
