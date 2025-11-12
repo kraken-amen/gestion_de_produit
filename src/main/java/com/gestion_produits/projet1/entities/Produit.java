@@ -4,7 +4,6 @@ import java.util.Date;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
 @Entity
 public class Produit {
     @Id
