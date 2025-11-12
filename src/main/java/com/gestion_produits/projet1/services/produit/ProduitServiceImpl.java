@@ -1,5 +1,7 @@
 package com.gestion_produits.projet1.services.produit;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.gestion_produits.projet1.entities.Produit;
 import com.gestion_produits.projet1.repos.ProduitRepository;
@@ -15,6 +17,12 @@ public class ProduitServiceImpl implements ProduitService {
     }
     @Override
     public Produit updateProduit(Produit p) {
+        Optional<Produit> produit=produitRepository.findById(p.getIdProduit());
+        if(produit.isPresent()) {
+            produit.get().setNomProduit(p.getNomProduit());
+            produit.get().setPrixProduit(p.getPrixProduit());
+            produit.get().setDateCreation(p.getDateCreation());
+        }
         return produitRepository.save(p);
     }
     @Override
