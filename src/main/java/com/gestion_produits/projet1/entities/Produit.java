@@ -1,4 +1,5 @@
 package com.gestion_produits.projet1.entities;
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -12,12 +13,12 @@ public class Produit {
     private Long idProduit;
     private String nomProduit;
     private Double prixProduit;
-    private Date dateCreation;
+    private LocalDate dateCreation;
 
     public Produit() {
     }
 
-    public Produit( String nomProduit, Double prixProduit, Date dateCreation) {
+    public Produit( String nomProduit, Double prixProduit, LocalDate dateCreation) {
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.dateCreation = dateCreation;
@@ -36,9 +37,6 @@ public class Produit {
     @ManyToOne
     @JoinColumn(name = "cat_id")
     private Catégorie cat;
-//    @OneToOne
-//    @JoinColumn(name="fich-id")
-//    private FichierStock fichier;
 
     @OneToOne(mappedBy = "produit")
     private FichierStock fichierStock;

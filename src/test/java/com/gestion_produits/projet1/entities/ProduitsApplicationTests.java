@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ProduitsApplicationTests {
     private ProduitRepository produitrepos ;
     @Test
     public void testCreateProduit()
-    {Produit produit = new Produit("oooo",2240.500,new Date());
+    {Produit produit = new Produit("oooo", 2240.500, LocalDate.of(2020, 4, 5));
 
         produitrepos.save(produit);
     }

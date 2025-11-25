@@ -29,7 +29,9 @@ public class Fournisseur {
                 '}';
     }
     @ManyToMany
-    @JoinTable(name = "produit_fournisseur", joinColumns = {@JoinColumn(name = "idp")}, inverseJoinColumns = {@JoinColumn(name = "idf")})
+    @JoinTable(name = "produit_fournisseur",
+            joinColumns = {@JoinColumn(name = "idp")},
+            inverseJoinColumns = {@JoinColumn(name = "idf")})
     private List<Produit> produit = new ArrayList<>();
 
 }
