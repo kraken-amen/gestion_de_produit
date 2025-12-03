@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RequestMapping("produit")
 @RestController
+@RequestMapping("produit")
+
 public class ProduitController {
     @Autowired
     private ProduitServiceImpl produitService;
@@ -16,11 +17,20 @@ public class ProduitController {
         return produitService.getAllProduits();
     }
     @PostMapping("/ajouter")
-    public Produit ajouterProduit(@RequestBody Produit p) {
+    public Produit ajouterProduit(@RequestBody Produit p)
+    {
+
         return produitService.saveProduit(p);
     }
-    @DeleteMapping("/delete")
-    public void deleteProduit(Long id) {
+    @PutMapping("/{id}")
+        public Produit modifierProduit(@PathVariable Long id,@RequestBody Produit p)
+        {
+            p.setIdProduit(id);
+            return produitService.saveProduit(p);
+        }
+    @DeleteMapping("/delete/{id}")
+    public void deleteProduit(@PathVariable Long id)
+    {
         produitService.deleteProduitById(id);
     }
 }
