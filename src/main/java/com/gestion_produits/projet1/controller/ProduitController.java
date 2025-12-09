@@ -1,6 +1,8 @@
 package com.gestion_produits.projet1.controller;
 
+import com.gestion_produits.projet1.dto.ProduitDTO;
 import com.gestion_produits.projet1.entities.Produit;
+import com.gestion_produits.projet1.mapper.ProduitMapper;
 import com.gestion_produits.projet1.services.produit.ProduitServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +19,11 @@ public class ProduitController {
         return produitService.getAllProduits();
     }
     @PostMapping("/ajouter")
-    public Produit ajouterProduit(@RequestBody Produit p)
+    public ProduitDTO ajouterProduit(@RequestBody ProduitDTO p)
     {
-
-        return produitService.saveProduit(p);
+        Produit entity = ProduitMapper.toEntity(p);
+        Produit s=produitService.saveProduit(entity);
+        return ProduitMapper.toDTO(s);
     }
     @PutMapping("/{id}")
         public Produit modifierProduit(@PathVariable Long id,@RequestBody Produit p)
